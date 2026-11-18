@@ -3,7 +3,7 @@ import pandas as pd
 from typing import List, Tuple, Dict, Optional
 from shapely.geometry import LineString, Point, box
 from shapely.strtree import STRtree
-from pathsnap.data_processing.loader import TripData
+from data_processing.loader import TripData
 
 
 def compute_point_to_segment(

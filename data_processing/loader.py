@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Optional, Tuple
 import numpy as np
 import pandas as pd
-from pathsnap.paths import ART, DATA
+from data_processing.paths import ART, DATA
 
 
 @dataclass

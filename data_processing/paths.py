@@ -1,7 +1,6 @@
-"""Shared path settings for this member's stage of PathSnap.
+"""Shared path settings for the processing and feature engineering stages.
 
-All four member folders (Abhay, Abheek, Abeetha, Abhinav) read and write the SAME artifacts folder,
-so each stage picks up the previous stage's outputs.
+Both stages read and write the shared artifacts folder, so they can use the same outputs.
 Override with environment variables:
   PATHSNAP_DATA       folder that contains train/ and student_test/   (default: <split root>/../Student folder)
   PATHSNAP_ARTIFACTS  shared artifacts folder                          (default: <split root>/artifacts)
@@ -9,10 +8,9 @@ Override with environment variables:
 import os
 from pathlib import Path
 
-MEMBER_DIR = Path(__file__).resolve().parents[1]
-SPLIT_ROOT = MEMBER_DIR.parent
-ARTIFACTS = Path(os.environ.get("PATHSNAP_ARTIFACTS", SPLIT_ROOT / "artifacts"))
-DATA_ROOT = Path(os.environ.get("PATHSNAP_DATA", SPLIT_ROOT.parent / "Student folder"))
+SPLIT_ROOT = Path(__file__).resolve().parents[1]
+ARTIFACTS = Path(os.environ.get("PATHSNAP_ARTIFACTS", SPLIT_ROOT.parent / "artifacts"))
+DATA_ROOT = Path(os.environ.get("PATHSNAP_DATA", SPLIT_ROOT.parent.parent / "Student folder"))
 
 
 def ART(sub: str = "") -> str:
