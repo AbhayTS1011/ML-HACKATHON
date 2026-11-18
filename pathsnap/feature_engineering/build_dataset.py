@@ -5,9 +5,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
-from data_processing.loader import load_trip
-from feature_engineering.extractor import CandidateExtractor
-from data_processing.paths import ART, DATA
+from pathsnap.data_processing.loader import load_trip
+from pathsnap.feature_engineering.extractor import CandidateExtractor
+from pathsnap.paths import ART, DATA
 
 
 def build_feature_datasets():
